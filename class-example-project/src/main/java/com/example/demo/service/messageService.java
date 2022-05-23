@@ -27,13 +27,13 @@ public class messageService {
         newMessage.setUsername(chatForm.getUsername());
         switch(chatForm.getMessageType()){
             case "Say":
-                newMessage.setMessage(chatForm.getMessageText());
+                newMessage.setMessageText(chatForm.getMessageText());
                 break;
             case "Shout":
-                newMessage.setMessage(chatForm.getMessageText().toUpperCase());
+                newMessage.setMessageText(chatForm.getMessageText().toUpperCase());
                 break;
             case "Whisper":
-                newMessage.setMessage(chatForm.getMessageText().toLowerCase());
+                newMessage.setMessageText(chatForm.getMessageText().toLowerCase());
                 break;
         }
         messageMapper.addMessage(newMessage);

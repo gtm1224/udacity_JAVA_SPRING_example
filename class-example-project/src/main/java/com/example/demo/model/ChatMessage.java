@@ -2,7 +2,8 @@ package com.example.demo.model;
 
 public class ChatMessage {
     private String username;
-    private String message;
+    private String messageText;
+    private Integer messageId;
 
     public String getUsername(){
         return username;
@@ -10,11 +11,16 @@ public class ChatMessage {
     public void setUsername(String username){
         this.username = username;
     }
-    public String getMessage(){
-        return message;
+    public String getMessageText(){
+        return messageText;
     }
-
-    public void setMessage(String message){
-        this.message = message;
+    public Integer getMessageId() {
+        return messageId;
+    }
+    public void setMessageId(Integer messageId) {
+        this.messageId = messageId;
+    }
+    public void setMessageText(String message){
+        this.messageText = message;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.ChatForm;
+import com.example.demo.model.ChatMessage;
 import com.example.demo.service.messageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.security.core.Authentication;
 @Controller
 @RequestMapping("/chat")
 public class chatController {
@@ -22,7 +23,8 @@ public class chatController {
         return "chat";
     }
     @PostMapping
-    public String postChatMessage(ChatForm chatForm, Model model){
+    public String postChatMessage(Authentication authentication, ChatForm chatForm, Model model){
+        chatForm.setUsername(authentication.getName());
         this.message_service.addMessage(chatForm);
         chatForm.setMessageText("");
         model.addAttribute("chatMessages",this.message_service.getChatMessages());
