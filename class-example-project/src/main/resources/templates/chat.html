@@ -6,8 +6,7 @@
 </head>
 <body>
 <form th:object="${chatForm}" action="#" th:action="@{/chat}" method="POST">
-    <label for="username">Username:</label>
-    <input id="username"  th:field="*{username}" type="text">
+
     <label for="messageText">Message Text:</label>
     <input id="messageText" th:field="*{messageText}" type="text">
     <label for="messageType">Message Type: </label>
